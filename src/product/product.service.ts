@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Product } from './product.model';
-import {} from 'aws-sdk';
+import {  } from 'aws-sdk';
 
 @Injectable()
 export class ProductService {
