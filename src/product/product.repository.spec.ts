@@ -33,15 +33,7 @@ describe('Product Repository Service', () => {
   });
 
   it('create a product success', async () => {
-    const productNeedToBeCreated = {
-      id: '1',
-      desc: 'product-desc-1',
-      name: 'product-1',
-      owner: 'owner-1',
-      productType: 'type-1',
-      created: 'created-at-time-1',
-      modified: 'modified-at-time-1',
-    };
+    const productNeedToBeCreated = createProductObject('1', 'type-a');
 
     await productRepository.create(productNeedToBeCreated);
 
@@ -53,15 +45,7 @@ describe('Product Repository Service', () => {
   });
 
   it('cannot create product if the id is undefined', async () => {
-    const productNeedToBeCreated = {
-      id: undefined,
-      name: 'product-1',
-      desc: 'product-desc-1',
-      owner: 'owner-1',
-      productType: 'type-1',
-      created: 'created-at-time-1',
-      modified: 'modified-at-time-1',
-    };
+    const productNeedToBeCreated = createProductObject(undefined, 'type-a');
 
     await productRepository.create(productNeedToBeCreated);
 
