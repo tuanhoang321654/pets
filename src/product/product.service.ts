@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import {} from '../infrastructure/model.interface';
 import { Product } from './product.model';
-import {  } from 'aws-sdk';
+import { ProductRepository } from './product.repository';
 
 @Injectable()
 export class ProductService {
-  createProduct(product: Product): Product {
-    console.log('create product');
+  constructor(private productRepository: ProductRepository) {}
 
-    return null;
+  async createProduct(product: Product): Promise<Product> {
+    return await this.productRepository.create(product);    
   }
 
   updateProduct(product: Product) {

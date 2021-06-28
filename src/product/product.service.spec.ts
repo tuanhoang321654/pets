@@ -1,5 +1,7 @@
+import {DocumentClient} from 'aws-sdk/clients/dynamodb';
+
 describe('Product Service', () => {
-  const { DocumentClient } = require('aws-sdk/clients/dynamodb');
+  
 
   const isTest = process.env.JEST_WORKER_ID;
   const config = {
@@ -16,18 +18,33 @@ describe('Product Service', () => {
   beforeEach(async () => {});
 
   it('Cannot create if product is null', async () => {
-    await ddb
-      .put({ TableName: 'products', Item: { id: '1', hello: 'world' } })
-      .promise();
+    // await ddb
+    //   .put({ TableName: 'products', Item: { id: '1', hello: 'world' } })
+    //   .promise();
 
-    const { Item } = await ddb
-      .get({ TableName: 'products', Key: { id: '1' } })
-      .promise();
+    // const { Item } = await ddb
+    //   .get({ TableName: 'products', Key: { id: '1' } })
 
-    expect(Item).toEqual({
-      id: '1',
-      hello: 'world',
-    });
+    //   .promise();
+
+
+      
+
+
+    //   Item.abc = 'ssss';
+
+    //   ddb.update({
+    //     Key: { id: '1' } ,
+
+    //     TableName: 'products',
+
+        
+    //   })
+
+    // expect(Item).toEqual({
+    //   id: '1',
+    //   hello: 'world',
+    // });
   });
 
   it('Create a product success', () => {});
