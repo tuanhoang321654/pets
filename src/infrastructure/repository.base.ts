@@ -11,11 +11,10 @@ export abstract class RepositoryBase<TModel extends IModel> {
       return await this.documentClient
         .put({
           TableName: this.tableName(),
-          Item: item
+          Item: item,
         })
         .promise();
-    } catch (e) {     
-
+    } catch (e) {
       return null;
     }
   }
@@ -56,4 +55,5 @@ export abstract class RepositoryBase<TModel extends IModel> {
       return null;
     }
   }
+  
 }

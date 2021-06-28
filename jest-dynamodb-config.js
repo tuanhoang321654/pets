@@ -7,12 +7,12 @@ module.exports = {
       ],
       AttributeDefinitions: [
         { AttributeName: 'id', AttributeType: 'S' },        
-        { AttributeName: 'type', AttributeType: 'S' }
+        { AttributeName: 'productType', AttributeType: 'S' }
       ],
       GlobalSecondaryIndexes: [
         {
           IndexName: 'type-gsi',
-          KeySchema: [{ AttributeName: 'type', KeyType: 'HASH' }],
+          KeySchema: [{ AttributeName: 'productType', KeyType: 'HASH' }],
 
           Projection: {
             ProjectionType: 'ALL',

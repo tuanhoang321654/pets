@@ -11,6 +11,20 @@ function createDocumentClient() {
   return ddb;
 }
 
+function createProductObject(id: string, type: string) {
+  const productNeedToBeCreated = {
+    id: id,
+    desc: 'product-desc-' + id,
+    name: 'product-' + id,
+    owner: 'owner-' + id,
+    productType: type,
+    created: 'created-at-time-' + id,
+    modified: 'modified-at-time-' + id,
+  };
+
+  return productNeedToBeCreated;
+}
+
 describe('Product Repository Service', () => {
   let productRepository: ProductRepository;
 
@@ -24,7 +38,7 @@ describe('Product Repository Service', () => {
       desc: 'product-desc-1',
       name: 'product-1',
       owner: 'owner-1',
-      type: 'type-1',
+      productType: 'type-1',
       created: 'created-at-time-1',
       modified: 'modified-at-time-1',
     };
@@ -44,7 +58,7 @@ describe('Product Repository Service', () => {
       name: 'product-1',
       desc: 'product-desc-1',
       owner: 'owner-1',
-      type: 'type-1',
+      productType: 'type-1',
       created: 'created-at-time-1',
       modified: 'modified-at-time-1',
     };
@@ -56,5 +70,45 @@ describe('Product Repository Service', () => {
     );
 
     expect(createdProduct).toBeNull();
+  });
+
+  it('', async () => {
+    await productRepository.create(createProductObject('1', 'type-a'));
+    await productRepository.create(createProductObject('2', 'type-a'));
+    await productRepository.create(createProductObject('3', 'type-a'));
+    await productRepository.create(createProductObject('4', 'type-b'));
+
+    const res = await productRepository.getProducts('type-a');
+
+    expect(res).toEqual([
+      {
+        owner: 'owner-2',
+        created: 'created-at-time-2',
+        name: 'product-2',
+        modified: 'modified-at-time-2',
+        id: '2',
+        productType: 'type-a',
+        desc: 'product-desc-2',
+      },
+      {
+        owner: 'owner-3',
+        created: 'created-at-time-3',
+        name: 'product-3',
+        modified: 'modified-at-time-3',
+        id: '3',
+        productType: 'type-a',
+        desc: 'product-desc-3',
+      },
+      {
+        owner: 'owner-1',
+        created: 'created-at-time-1',
+        name: 'product-1',
+        modified: 'modified-at-time-1',
+        id: '1',
+        productType: 'type-a',
+        desc: 'product-desc-1',
+      },
+    ]);
+
   });
 });

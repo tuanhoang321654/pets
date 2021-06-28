@@ -5,7 +5,7 @@ export class Product implements IModel {
   id: string;
 
   name: string;  
-  type: string;
+  productType: string;
   desc: string;
   owner: string;
   created: string;
