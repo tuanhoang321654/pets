@@ -20,7 +20,7 @@ export abstract class RepositoryBase<TModel extends IModel> {
   }
 
   public async update(
-    item: TModel,
+    id: string,
     expression: UpdateExpression,
   ): Promise<any> {
     try {
@@ -28,7 +28,7 @@ export abstract class RepositoryBase<TModel extends IModel> {
         .update({
           TableName: this.tableName(),
           Key: {
-            id: item.id,
+            id: id,
           },
           UpdateExpression: expression,
         })

@@ -55,8 +55,9 @@ describe('Product Repository Service', () => {
 
     expect(createdProduct).toBeNull();
   });
+  
 
-  it('', async () => {
+  it('get products by type', async () => {
     await productRepository.create(createProductObject('1', 'type-a'));
     await productRepository.create(createProductObject('2', 'type-a'));
     await productRepository.create(createProductObject('3', 'type-a'));
@@ -93,6 +94,5 @@ describe('Product Repository Service', () => {
         desc: 'product-desc-1',
       },
     ]);
-
   });
 });
