@@ -1,8 +1,6 @@
-import {DocumentClient} from 'aws-sdk/clients/dynamodb';
+import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 
 describe('Product Service', () => {
-  
-
   const isTest = process.env.JEST_WORKER_ID;
   const config = {
     convertEmptyValues: true,
@@ -17,35 +15,7 @@ describe('Product Service', () => {
 
   beforeEach(async () => {});
 
-  it('Cannot create if product is null', async () => {
-    // await ddb
-    //   .put({ TableName: 'products', Item: { id: '1', hello: 'world' } })
-    //   .promise();
-
-    // const { Item } = await ddb
-    //   .get({ TableName: 'products', Key: { id: '1' } })
-
-    //   .promise();
-
-
-      
-
-
-    //   Item.abc = 'ssss';
-
-    //   ddb.update({
-    //     Key: { id: '1' } ,
-
-    //     TableName: 'products',
-
-        
-    //   })
-
-    // expect(Item).toEqual({
-    //   id: '1',
-    //   hello: 'world',
-    // });
-  });
+  it('Cannot create if product is null', async () => {});
 
   it('Create a product success', () => {});
 
