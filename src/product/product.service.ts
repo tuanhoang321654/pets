@@ -24,6 +24,10 @@ export class ProductService {
   }
 
   async getProducts(type: string): Promise<Product[]> {
+
+
+    console.log('getting product....');
+
     return await this.productRepository.getProducts(type);
   }
 }
