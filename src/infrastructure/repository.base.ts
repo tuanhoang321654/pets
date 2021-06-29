@@ -19,10 +19,7 @@ export abstract class RepositoryBase<TModel extends IModel> {
     }
   }
 
-  public async update(
-    id: string,
-    expression: UpdateExpression,
-  ): Promise<any> {
+  public async update(id: string, expression: UpdateExpression): Promise<any> {
     try {
       return await this.documentClient
         .update({
@@ -55,5 +52,4 @@ export abstract class RepositoryBase<TModel extends IModel> {
       return null;
     }
   }
-  
 }

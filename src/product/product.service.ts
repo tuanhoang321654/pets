@@ -8,24 +8,22 @@ export class ProductService {
   constructor(private productRepository: ProductRepository) {}
 
   async createProduct(product: Product): Promise<Product> {
-    return await this.productRepository.create(product);    
+    return await this.productRepository.create(product);
   }
 
-  updateProduct(product: Product) {
-    console.log('update product');
-
-    return null;
+  async updateProduct(product: Product) {
+    return await this.productRepository.create(product);
   }
 
-  getProductById(id: string): Product {
-    return null;
+  async getProductById(id: string): Promise<Product> {
+    return await this.productRepository.getById(id);
   }
 
-  deleteProduct(): Boolean {
+  async deleteProduct(): Promise<Boolean> {
     return false;
   }
 
-  getProducts(type: string): Product[] {
-    return [];
+  async getProducts(type: string): Promise<Product[]> {
+    return await this.productRepository.getProducts(type);
   }
 }
